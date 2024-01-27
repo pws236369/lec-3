@@ -6,7 +6,6 @@ body {
 
 div {
   display: flex;
-  align-items: center;
   margin-bottom: 20px;
 }
 
@@ -14,6 +13,11 @@ img {
   width: 200px;
   height: 200px;
   margin-right: 20px;
+}
+
+.sharks-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .box {
