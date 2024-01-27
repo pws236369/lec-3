@@ -42,3 +42,28 @@ document.getElementById('add-shark-btn').addEventListener('click', () => {
   document.getElementById('shark-name').value = '';
   document.getElementById('shark-description').value = '';
 });
+
+// Create a function to simulate an asynchronous task
+function swimWithShark() {
+  return new Promise((resolve, reject) => {
+    // Simulate swimming with a shark for 3 seconds
+    setTimeout(() => {
+      const isSafe = Math.random() < 0.5; // Simulate whether it's safe or not
+      if (isSafe) {
+        resolve('You safely swam with the shark!');
+      } else {
+        reject('The shark got too close! Retreat!');
+      }
+    }, 3000); // 3 seconds
+  });
+}
+
+document.getElementById('swim-with-shark-btn').addEventListener('click', () => {
+  swimWithShark()
+    .then((result) => {
+      console.log(result); // Success: You safely swam with the shark!
+    })
+    .catch((error) => {
+      console.error(error); // Error: The shark got too close! Retreat!
+    });
+});
