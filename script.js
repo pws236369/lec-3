@@ -58,12 +58,20 @@ function swimWithShark() {
   });
 }
 
-document.getElementById('swim-with-shark-btn').addEventListener('click', () => {
-  swimWithShark()
-    .then((result) => {
-      console.log(result); // Success: You safely swam with the shark!
-    })
-    .catch((error) => {
-      console.error(error); // Error: The shark got too close! Retreat!
-    });
-});
+// Using async/await
+document
+  .getElementById('swim-with-shark-btn')
+  .addEventListener('click', async () => {
+    const result = await swimWithShark();
+    alert(result); // Success: You safely swam with the shark!
+  });
+
+//   // Using async/await
+// document.getElementById('swim-with-shark-btn').addEventListener('click', async () => {
+//     try {
+//       const result = await swimWithShark();
+//       console.log(result); // Success: You safely swam with the shark!
+//     } catch (error) {
+//       console.error(error); // Error: The shark got too close! Retreat!
+//     }
+//   });
