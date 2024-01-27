@@ -43,35 +43,19 @@ document.getElementById('add-shark-btn').addEventListener('click', () => {
   document.getElementById('shark-description').value = '';
 });
 
-// Create a function to simulate an asynchronous task
-function swimWithShark() {
-  return new Promise((resolve, reject) => {
-    // Simulate swimming with a shark for 3 seconds
-    setTimeout(() => {
-      const isSafe = Math.random() < 0.5; // Simulate whether it's safe or not
-      if (isSafe) {
-        resolve('You safely swam with the shark!');
-      } else {
-        reject('The shark got too close! Retreat!');
-      }
-    }, 3000); // 3 seconds
-  });
-}
+const getHuman = async (num) => {
+  const res = await fetch(`https://rickandmortyapi.com/api/character/${num}`);
+  console.log(res);
+  const human = await res.json();
+  return human;
+};
 
-// Using async/await
-document
-  .getElementById('swim-with-shark-btn')
-  .addEventListener('click', async () => {
-    const result = await swimWithShark();
-    alert(result); // Success: You safely swam with the shark!
-  });
+const rick = await getHuman(1);
+console.log(rick);
 
-//   // Using async/await
-// document.getElementById('swim-with-shark-btn').addEventListener('click', async () => {
-//     try {
-//       const result = await swimWithShark();
-//       console.log(result); // Success: You safely swam with the shark!
-//     } catch (error) {
-//       console.error(error); // Error: The shark got too close! Retreat!
-//     }
-//   });
+// const run = async () => {
+//   const rick = await getHuman(1);
+//   console.log(rick);
+// };
+
+// run();
