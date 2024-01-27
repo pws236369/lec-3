@@ -51,13 +51,16 @@ const getHuman = async (num) => {
 
 const getFamily = async () => {
   console.log('async function called');
-  const rick = await getHuman(1);
-  const morty = await getHuman(2);
-  const summer = await getHuman(3);
-  console.log('async function finished');
+  const rick = getHuman(1);
+  const morty = getHuman(2);
+  const summer = getHuman(3);
 
-  return [rick, morty, summer];
+  return Promise.all([rick, morty, summer]);
 };
+
+// const badRequest = async () => {
+//   throw new Error('This is a bad function');
+// };
 
 const run = async () => {
   const family = await getFamily();
