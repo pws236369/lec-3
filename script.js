@@ -50,16 +50,19 @@ const getHuman = async (num) => {
 };
 
 const getFamily = async () => {
-  console.log('async function called');
-  const rick = getHuman(1);
-  const morty = getHuman(2);
-  const summer = getHuman(3);
-
-  return Promise.all([rick, morty, summer]);
+  const ids = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  ids.forEach(async (id) => {
+    const human = await getHuman(id);
+    console.log(human);
+  });
 };
 
-// const badRequest = async () => {
-//   throw new Error('This is a bad function');
+// const getFamilyByOrder = async () => {
+//   const ids = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+//   for (const id of ids) {
+//     const human = await getHuman(id);
+//     console.log(human);
+//   }
 // };
 
 const run = async () => {
