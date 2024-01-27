@@ -45,17 +45,24 @@ document.getElementById('add-shark-btn').addEventListener('click', () => {
 
 const getHuman = async (num) => {
   const res = await fetch(`https://rickandmortyapi.com/api/character/${num}`);
-  console.log(res);
   const human = await res.json();
   return human;
 };
 
-const rick = await getHuman(1);
-console.log(rick);
+const getFamily = async () => {
+  console.log('async function called');
+  const rick = await getHuman(1);
+  const morty = await getHuman(2);
+  const summer = await getHuman(3);
+  console.log('async function finished');
 
-// const run = async () => {
-//   const rick = await getHuman(1);
-//   console.log(rick);
-// };
+  return [rick, morty, summer];
+};
 
-// run();
+const run = async () => {
+  const family = await getFamily();
+  console.log(family);
+};
+
+run();
+console.log('Am I Blocked?!');
